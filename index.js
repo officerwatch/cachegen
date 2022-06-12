@@ -50,6 +50,7 @@ if (process.argv[2] == "--task" && process.argv[3] == "objectGetIpfs") {
   const data = JSON.stringify({
     query: `{
               objectGetAll {
+                  id
                   ipfsHash
               }
             }`,
@@ -77,8 +78,7 @@ if (process.argv[2] == "--task" && process.argv[3] == "objectGetIpfs") {
           for (const obj of returnData.data.objectGetAll)
           {
             cacheArray[obj.ipfsHash] = {};
-            
-            let ipfsData = await axios.get("https://ipfs.officer.watch/ipfs/QmNTUpGuwWsL7CJvPtNdoJMgY51kUKfReh6eE3aSuHosTo")
+            let ipfsData = await axios.get("https://ipfs.officer.watch/ipfs/" + obj.id)
                                       .catch(function (err) {
                                         console.log("Unable to fetch -", err);
                                       });
@@ -86,6 +86,7 @@ if (process.argv[2] == "--task" && process.argv[3] == "objectGetIpfs") {
           }
           fs.writeFileSync('ipfsCache.json', 
           JSON.stringify(cacheArray));
+          console.log(cacheArray);
       } catch (err) {
           console.error(err);
       }
