@@ -1,0 +1,30 @@
+{
+  "name": "cachegen",
+  "version": "0.1.0",
+  "description": "generates json cache of blockchain data store objects",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/officerwatch/cachegen"
+  },
+  "keywords": [
+    "web3",
+    "json",
+    "javascript",
+    "cache",
+    "blockchain",
+    "graphql"
+  ],
+  "author": "sami fouad",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/officerwatch/cachegen/issues"
+  },
+  "homepage": "https://github.com/officerwatch/cachegen#readme",
+  "dependencies": {
+    "axios": "^0.27.2"
+  }
+}
